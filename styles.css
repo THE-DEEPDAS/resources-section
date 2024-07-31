@@ -1,0 +1,253 @@
+@font-face {
+    font-family: 'Martel Sans';
+    src: url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+}
+
+body {
+    font-family: 'Martel Sans', Arial, sans-serif;
+    background: linear-gradient(50deg, rgba(13,209,236,1) 0%, rgba(5,105,119,1) 31%, rgba(0,0,0,1) 80%);
+    color: #ffffff;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.article_heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    font-weight: 300;
+    font-family: 'Martel Sans', sans-serif;
+    margin-top: 20px;
+}
+
+.slider_article {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 80%;
+    margin: 50px auto;
+}
+
+.article {
+    background: rgba(255, 255, 255, 0.1);
+    border-right: 2px solid #ffffff;
+    padding: 20px;
+    text-align: center;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    margin: 10px;
+    flex: 0 1 30%; /* Adjust to ensure three articles per row */
+    box-sizing: border-box;
+    height: 400px; /* Ensure all articles have the same height */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+.article h2 {
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1.5em;
+}
+
+.article p {
+    font-size: 1em;
+    color: rgb(204, 233, 236);
+}
+
+.article:hover {
+    background: rgba(13, 68, 74, 0.8);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.video_library_heading, .podcast_heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: 300;
+    margin: 50px 0;
+}
+
+.slider_video_library, .slider_podcast {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 90%;
+    margin: 50px auto;
+    height: 100%;
+}
+.video{
+    height: 300px;
+    color:white;
+   
+}
+.podcast{
+    width : 400px
+}
+.video, .podcast {
+    background: linear-gradient(50deg, rgba(13,209,236,1) 0%, rgba(5,105,119,1) 31%, rgba(0,0,0,1) 80%);
+    /* border: 1px solid #ddd; */
+    color:white;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    margin: 10px;
+    flex: 0 1 30%; /* Adjust to ensure three items per row */
+    box-sizing: border-box;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.video h3, .podcast h3 {
+    margin: 10px 0;
+}
+
+.video p, .podcast p {
+    font-size: 1em;
+    color: #ffffff;
+}
+
+.video:hover, .podcast:hover {
+    background: linear-gradient(50deg, rgb(25, 94, 103) 0%, rgb(6, 68, 76) 31%, rgba(0,0,0,1) 80%);
+
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    color:white;
+    transform: scale(1.05);
+}
+
+.img_video {
+    backdrop-filter: blur(100px);
+}
+
+#loader {
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    transition: all 0.7s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loader h1 {
+    font-size: 8vw;
+    color: transparent;
+    background: linear-gradient(to right, orange, orangered);
+    -webkit-background-clip: text;
+    position: absolute;
+    opacity: 0;
+    animation-name: load;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-timing-function: linear;
+}
+
+#loader h1:nth-child(2) {
+    animation-delay: 1.5s;
+}
+
+#loader h1:nth-child(3) {
+    animation-delay: 2.5s;
+}
+
+@keyframes load {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@media (max-width: 1200px) {
+    .article, .video, .podcast {
+        flex: 0 1 45%; /* Two items per row */
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 768px) {
+    .article_heading, .video_library_heading, .podcast_heading {
+        font-size: 0.5em;
+    }
+    .article{
+        flex: 0 1 100%; /* One item per row */
+        height: 445px; /* Adjust height for smaller screens */
+        overflow: hidden;
+    }
+    .video{
+        flex: 0 1 100%; /* One item per row */
+        height: 300px; /* Adjust height for smaller screens */
+        overflow: hidden;
+
+    }
+    .podcast {
+        flex: 0 1 100%; /* One item per row */
+        height: 200px; /* Adjust height for smaller screens */
+        overflow:hidden;
+    }
+
+    .article h2, .video h3, .podcast h3 {
+        font-size: 0.8em;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 0.9em;
+    }
+    .article_heading, .video_library_heading, .podcast_heading {
+        font-size: 1.5em;
+        overflow: hidden;
+    }
+    .article, .video, .podcast {
+        display: flex;
+        padding: 15px;
+        margin: 10px 0; /* Remove side margins for better fit */
+        overflow: hidden;
+    }
+    .article h2, .video h3, .podcast h3 {
+        font-size: 1.2em;
+        overflow: hidden;
+    }
+    .article p, .video p, .podcast p {
+        font-size: 0.9em;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 360px) {
+    .article_heading, .video_library_heading, .podcast_heading {
+        font-size: 1.2em;
+        overflow: hidden;
+    }
+    .article h2, .video h3, .podcast h3 {
+        font-size: 0.69em;
+        overflow: hidden;
+    }
+    .article p, .video p, .podcast p {
+        font-size: 0.8em;
+        overflow: hidden;
+    }
+    .article, .video, .podcast {
+        padding: 10px;
+        margin: 5px 0; /* Reduce margins for very small screens */
+        overflow: hidden;
+    }
+}
