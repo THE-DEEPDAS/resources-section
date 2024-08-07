@@ -4,64 +4,70 @@
 }
 
 body {
-    font-family: 'Martel Sans', Arial, sans-serif;
-    background: linear-gradient(50deg, rgba(13,209,236,1) 0%, rgba(5,105,119,1) 31%, rgba(0,0,0,1) 80%);
-    color: #ffffff;
+    background: rgb(86,86,88,0.3);
+    background: linear-gradient(115deg, rgba(86,86,88,1) 3%, rgba(38,39,42,1) 29%, rgba(0,1,5,1) 48%, rgba(33,34,37,1) 72%, rgba(79,79,81,1) 96%);
+    background-image: url("https://img.freepik.com/free-photo/3d-rendering-abstract-black-white-geometric-background_23-2150853539.jpg");
+    background-size: cover;
     background-attachment: fixed;
+    
+    color: #ffffff;
     margin: 0;
     padding: 0;
 }
-@font-face {
-    font-family: 'Black Mango';
-    src: url('./fonts/BlackMango.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-.article_heading h1{
-    font-family: 'Black Mango', sans-serif;
 
-}
-@font-face {
+@import url('https://fonts.googleapis.com/css2?family=Black+Mango&display=swap');
+
+
+
+/* @font-face {
     font-family: 'Black Mango';
     src: url('./fonts/BlackMango.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-  }
-  
-.video_library_heading{
-    font-family: 'Black Mango', sans-serif;
-}
-@font-face {
-    font-family: 'Black Mango';
-    src: url('./fonts/BlackMango.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-.podcast_heading h1{
-    font-family: 'Black Mango', sans-serif;
-}
-.article_heading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.5em;
-    font-weight: 300;
-    font-family: 'Martel Sans', sans-serif;
-    margin-top: 20px;
-}
+} */
+
 @font-face {
     font-family: 'Argent';
     src: url('path/to/argent.woff2') format('woff2'),
          url('path/to/argent.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-  }
-
-.article h2{
-    font-family: 'Argent', sans-serif;
-
 }
+
+/* Apply Black Mango font to all headings */
+h1, h2, h3 {
+    font-family: 'Black Mango', sans-serif;
+}
+
+.article_heading h1, .video_library_heading, .podcast_heading h1 {
+    font-family: 'Black Mango', sans-serif;
+}
+
+.article h3{
+    color: rgb(255, 255, 255);
+    z-index: 1;
+}
+.article_heading, .video_library_heading, .podcast_heading {
+    font-size: 3em;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.1s ease-out, transform 0.2s ease-out;
+    animation: slideInBounce 1s ease-out forwards;
+    font-family: 'Black Mango', sans-serif;
+}
+
+.article_heading h1, .video_library_heading h1, .podcast_heading h1 {
+    font-family: 'Black Mango', sans-serif;
+}
+
+.article h2 {
+    font-family: 'Argent', sans-serif;
+}
+
 .slider_article {
     display: flex;
     flex-wrap: wrap;
@@ -71,19 +77,36 @@ body {
 }
 
 .article {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.2);
     border-right: 2px solid #ffffff;
     padding: 20px;
     text-align: center;
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
     margin: 10px;
-    flex: 0 1 30%; /* Adjust to ensure three articles per row */
+    flex: 0 1 30%;
     box-sizing: border-box;
-    height: 400px; /* Ensure all articles have the same height */
+    height: 400px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     justify-content: space-between;
+    position: relative;
+}
+
+.article::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.article h2, .article p {
+    position: relative;
+    z-index: 2;
 }
 
 .article h2 {
@@ -99,8 +122,10 @@ body {
 }
 
 .article:hover {
-    background: rgba(13, 68, 74, 0.8);
+    background: rgb(0,1,5);
+    background: linear-gradient(115deg, rgba(0,1,5,1) 0%, rgba(38,39,42,1) 20%, rgba(75,75,77,1) 43%, rgba(86,86,88,1) 60%, rgba(72,72,74,1) 73%, rgba(41,42,45,1) 87%, rgba(33,34,37,1) 100%);
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.07)
 }
 
 .video_library_heading, .podcast_heading {
@@ -110,6 +135,7 @@ body {
     font-size: 2em;
     font-weight: 300;
     margin: 50px 0;
+    font-family: 'Black Mango', sans-serif;
 }
 
 .slider_video_library, .slider_podcast {
@@ -120,45 +146,46 @@ body {
     margin: 50px auto;
     height: 100%;
 }
-.video{
-    height: 300px;
-    color:white;
-   
-}
-.podcast{
-    width : 400px
-}
+
 .video, .podcast {
-    background: linear-gradient(50deg, rgba(13,209,236,1) 0%, rgba(5,105,119,1) 31%, rgba(0,0,0,1) 80%);
-    /* border: 1px solid #ddd; */
-    color:white;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
     border-radius: 5px;
     padding: 10px;
     text-align: center;
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
     margin: 10px;
-    flex: 0 1 30%; /* Adjust to ensure three items per row */
+    flex: 0 1 30%;
     box-sizing: border-box;
-   
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
 }
 
 .video h3, .podcast h3 {
     margin: 10px 0;
+    position: relative;
+    z-index: 2;
+    font-family: 'Black Mango', sans-serif;
 }
 
 .video p, .podcast p {
     font-size: 1em;
     color: #ffffff;
+    position: relative;
+    z-index: 2;
 }
 
 .video:hover, .podcast:hover {
-    background: linear-gradient(50deg, rgb(25, 94, 103) 0%, rgb(6, 68, 76) 31%, rgba(0,0,0,1) 80%);
-
+    background: rgb(0,1,5);
+    background: linear-gradient(115deg, rgba(0,1,5,1) 0%, rgba(38,39,42,1) 20%, rgba(75,75,77,1) 43%, rgba(86,86,88,1) 60%, rgba(72,72,74,1) 73%, rgba(41,42,45,1) 87%, rgba(33,34,37,1) 100%);
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-    color:white;
+    color: white;
+    transform: scale(1.05);
+}
+
+.article:hover .video:hover .podcast:hover {
     transform: scale(1.05);
 }
 
@@ -214,9 +241,10 @@ body {
         opacity: 0;
     }
 }
+
 @media (max-width: 1200px) {
     .article, .video, .podcast {
-        flex: 0 1 45%; /* Two items per row */
+        flex: 0 1 45%;
         overflow: hidden;
     }
 }
@@ -225,21 +253,20 @@ body {
     .article_heading, .video_library_heading, .podcast_heading {
         font-size: 0.5em;
     }
-    .article{
-        flex: 0 1 100%; /* One item per row */
-        height: 445px; /* Adjust height for smaller screens */
+    .article {
+        flex: 0 1 100%;
+        height: 445px;
         overflow: hidden;
     }
-    .video{
-        flex: 0 1 100%; /* One item per row */
-        height: 300px; /* Adjust height for smaller screens */
+    .video {
+        flex: 0 1 100%;
+        height: 300px;
         overflow: hidden;
-
     }
     .podcast {
-        flex: 0 1 100%; /* One item per row */
-        height: 200px; /* Adjust height for smaller screens */
-        overflow:hidden;
+        flex: 0 1 100%;
+        height: 200px;
+        overflow: hidden;
     }
 
     .article h2, .video h3, .podcast h3 {
@@ -259,7 +286,7 @@ body {
     .article, .video, .podcast {
         display: flex;
         padding: 15px;
-        margin: 10px 0; /* Remove side margins for better fit */
+        margin: 10px 0;
         overflow: hidden;
     }
     .article h2, .video h3, .podcast h3 {
@@ -287,7 +314,39 @@ body {
     }
     .article, .video, .podcast {
         padding: 10px;
-        margin: 5px 0; /* Reduce margins for very small screens */
+        margin: 5px 0;
         overflow: hidden;
     }
+}
+
+@keyframes slideInBounce {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    60% {
+        transform: translateY(10px);
+        opacity: 1;
+    }
+    80% {
+        transform: translateY(-5px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.article_heading, .video_library_heading, .podcast_heading {
+    font-size: 3em;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.1s ease-out, transform 0.2s ease-out;
+    animation: slideInBounce 1s ease-out forwards;
+    font-family: 'Black Mango', sans-serif;
 }
