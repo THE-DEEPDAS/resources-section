@@ -1,0 +1,449 @@
+
+
+
+@font-face {
+    font-family: 'Martel Sans';
+    src: url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+}
+
+body {
+   
+background: linear-gradient(225deg, rgba(38,39,42,1) 9%, rgba(38,39,42,1) 50%, rgba(94,93,93,1) 51%, rgba(10,10,12,1) 78%, rgba(41,42,45,1) 92%, rgba(9,11,18,1) 94%, rgba(86,86,88,1) 94%);
+    background-size: cover;
+    background-attachment: fixed;
+    
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Black+Mango&display=swap');
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(3, 2, 2, 0.8); /* Translucent background */
+    padding-left: 1%;
+    z-index: 1;
+}
+
+.navbar .logo a {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    font-weight:600;
+}
+
+
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding-left: 0.5px;
+    padding-right: 0.5px; 
+    margin: 0;
+    z-index: 1;
+    
+}
+
+.navbar .nav-links li {
+    margin: 0 10px;
+}
+
+.navbar .nav-links li a {
+    color: rgb(190, 177, 177);
+    text-decoration: none;
+    font-size: 18px;
+
+    transition: color 0.3s;
+}
+
+.navbar .nav-links li a:hover {
+    color: #ffffff; /* Tomato color */
+}
+
+.navbar .hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+  /* Dropdown Menu */
+  .navbar .dropdown-menu {
+    background-color: #22313f; /* Darker Blue */
+    border: 1px solid #3498db; /* Bright Blue Border */
+    
+  }
+  
+  .navbar-nav .dropdown-item {
+    color: #ecf0f1; /* White */
+  }
+  
+  .navbar-nav .dropdown-item:hover {
+    background-color: #34495e; /* Slightly Lighter Dark Blue */
+    color: #ffffff; /* Bright White */
+  }
+
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background-color: rgba(3, 2, 2, 0.8); /* Translucent background for mobile */
+        display: none;
+    }
+
+    .navbar .nav-links li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .navbar .nav-links li a {
+        font-size: 20px;
+    }
+
+    .navbar .hamburger {
+        display: block;
+    }
+
+    .navbar .nav-links.show {
+        display: flex;
+    }
+}
+
+
+@font-face {
+    font-family: 'Argent';
+    src: url('path/to/argent.woff2') format('woff2'),
+         url('path/to/argent.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Apply Black Mango font to all headings */
+h1, h2, h3 {
+    font-family: 'Black Mango', sans-serif;
+}
+
+.article_heading h1, .video_library_heading, .podcast_heading h1 {
+    font-family: 'Black Mango', sans-serif;
+    
+}
+
+.article h3{
+   
+    z-index: 4;
+
+}
+.article_heading h1, .video_library_heading h1, .podcast_heading h1{
+    font-size: 1em;
+    font-weight: 200;
+    
+    color: white;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.1s ease-out, transform 0.2s ease-out;
+    animation: slideInBounce 1s ease-out forwards;
+    font-family: 'Black Mango', sans-serif;
+}
+
+.article_heading h1, .video_library_heading h1, .podcast_heading h1 {
+    font-family: 'Black Mango', sans-serif;
+}
+
+.article h2 a{
+    font-family: 'Argent', sans-serif;
+    font-weight: 100;
+}
+
+.slider_article {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 80%;
+    margin: 50px auto;
+}
+
+.article {
+    background: rgba(255, 255, 255, 0.2);
+    border-right: 2px solid #ffffff;
+    padding: 20px;
+    text-align: center;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    margin: 10px;
+    flex: 0 1 30%;
+    box-sizing: border-box;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: space-between;
+    position: relative;
+}
+
+.article::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.article h2, .article p,.article h3 {
+    position: relative;
+    z-index: 2;
+}
+
+.article h2 {
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1.5em;
+}
+
+.article p {
+    font-size: 1em;
+    color: rgb(204, 233, 236);
+}
+
+.article:hover {
+   
+    background: linear-gradient(115deg, rgba(0,1,5,1) 0%, rgba(38,39,42,1) 20%, rgba(75,75,77,1) 43%, rgba(86,86,88,1) 60%, rgba(72,72,74,1) 73%, rgba(41,42,45,1) 87%, rgba(33,34,37,1) 100%);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.07)
+}
+
+.video_library_heading, .podcast_heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: 300;
+    margin: 50px 0;
+    font-family: 'Black Mango', sans-serif;
+}
+
+.slider_video_library, .slider_podcast {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 90%;
+    margin: 50px auto;
+    height: 100%;
+}
+
+.video, .podcast {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    margin: 10px;
+    flex: 0 1 30%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.video h3, .podcast h3 {
+    margin: 10px 0;
+    position: relative;
+    z-index: 2;
+    font-family: 'Black Mango', sans-serif;
+}
+
+.video p, .podcast p {
+    font-size: 1em;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+}
+
+.video:hover, .podcast:hover {
+    background: rgb(0,1,5);
+    background: linear-gradient(115deg, rgba(0,1,5,1) 0%, rgba(38,39,42,1) 20%, rgba(75,75,77,1) 43%, rgba(86,86,88,1) 60%, rgba(72,72,74,1) 73%, rgba(41,42,45,1) 87%, rgba(33,34,37,1) 100%);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    color: white;
+    transform: scale(1.05);
+}
+
+.article:hover .video:hover .podcast:hover {
+    transform: scale(1.05);
+}
+
+.img_video {
+    backdrop-filter: blur(100px);
+}
+
+#loader {
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    transition: all 0.7s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loader h1 {
+    font-size: 8vw;
+    color: transparent;
+    background: linear-gradient(to right, orange, orangered);
+    -webkit-background-clip: text;
+    position: absolute;
+    opacity: 0;
+    animation-name: load;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-timing-function: linear;
+}
+
+#loader h1:nth-child(2) {
+    animation-delay: 1.5s;
+}
+
+#loader h1:nth-child(3) {
+    animation-delay: 2.5s;
+}
+
+@keyframes load {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 1200px) {
+    .article, .video, .podcast {
+        flex: 0 1 45%;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 768px) {
+    .article_heading, .video_library_heading, .podcast_heading {
+        font-size: 0.5em;
+    }
+    .article {
+        flex: 0 1 100%;
+        height: 445px;
+        overflow: hidden;
+    }
+    .video {
+        flex: 0 1 100%;
+        height: 300px;
+        overflow: hidden;
+    }
+    .podcast {
+        flex: 0 1 100%;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .article h2, .video h3, .podcast h3 {
+        font-size: 0.8em;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 0.9em;
+    }
+    .article_heading, .video_library_heading, .podcast_heading {
+        font-size: 1.5em;
+        overflow: hidden;
+    }
+    .article, .video, .podcast {
+        display: flex;
+        padding: 15px;
+        margin: 10px 0;
+        overflow: hidden;
+    }
+    .article h2, .video h3, .podcast h3 {
+        font-size: 1.2em;
+        overflow: hidden;
+    }
+    .article p, .video p, .podcast p {
+        font-size: 0.9em;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 360px) {
+    .article_heading, .video_library_heading, .podcast_heading {
+        font-size: 1.2em;
+        overflow: hidden;
+    }
+    .article h2, .video h3, .podcast h3 {
+        font-size: 0.69em;
+        overflow: hidden;
+    }
+    .article p, .video p, .podcast p {
+        font-size: 0.8em;
+        overflow: hidden;
+    }
+    .article, .video, .podcast {
+        padding: 10px;
+        margin: 5px 0;
+        overflow: hidden;
+    }
+}
+
+@keyframes slideInBounce {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    60% {
+        transform: translateY(10px);
+        opacity: 1;
+    }
+    80% {
+        transform: translateY(-5px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.article_heading, .video_library_heading, .podcast_heading {
+    font-size: 3em;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.1s ease-out, transform 0.2s ease-out;
+    animation: slideInBounce 1s ease-out forwards;
+    font-family: 'Black Mango', sans-serif;
+}
